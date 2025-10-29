@@ -18,16 +18,57 @@ Model Context Protocol server for Qwen CLI integration. This tool enables AI ass
 
 ## Installation
 
-### Quick Setup (via Claude Code)
+### Quick Setup (Easiest - Recommended)
+
+Use Claude Code's built-in MCP installer:
 
 ```bash
-claude mcp add qwen-cli -- npx -y qwen-mcp-tool
+claude mcp add qwen-cli -- npx -y @jaggerxtrm/qwen-mcp-tool
 ```
 
-### Manual Installation
+This single command configures everything automatically!
 
-1. Install dependencies:
+### Via Global Install
+
+Install via npm:
+
 ```bash
+npm install -g @jaggerxtrm/qwen-mcp-tool
+```
+
+Then add to Claude Code MCP settings (`~/.config/claude/mcp_settings.json`):
+
+```json
+{
+  "mcpServers": {
+    "qwen-cli": {
+      "command": "qwen-mcp-tool"
+    }
+  }
+}
+```
+
+### Via npx (Manual Configuration)
+
+Manually configure to use npx without installing:
+
+```json
+{
+  "mcpServers": {
+    "qwen-cli": {
+      "command": "npx",
+      "args": ["-y", "@jaggerxtrm/qwen-mcp-tool"]
+    }
+  }
+}
+```
+
+### From Source (Development)
+
+1. Clone and install dependencies:
+```bash
+git clone <repo-url>
+cd qwen-mcp-tool
 npm install
 ```
 
@@ -36,15 +77,9 @@ npm install
 npm run build
 ```
 
-3. Run the server:
+3. Link locally:
 ```bash
-npm start
-```
-
-### Development
-
-```bash
-npm run dev
+npm link
 ```
 
 ## Available Tools

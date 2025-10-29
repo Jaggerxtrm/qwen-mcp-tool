@@ -19,9 +19,71 @@ Before installing qwen-mcp-tool, you need:
 
 ## Installation Methods
 
-### Method 1: Local Installation (Current State)
+### Method 1: Claude MCP Add (Easiest - Recommended)
 
-Since the tool isn't published to npm yet, use it locally:
+Use Claude Code's built-in MCP installer for automatic setup:
+
+```bash
+claude mcp add qwen-cli -- npx -y @jaggerxtrm/qwen-mcp-tool
+```
+
+This single command:
+- ✅ Automatically configures the MCP server
+- ✅ Adds it to your Claude Code settings
+- ✅ No manual JSON editing needed
+- ✅ Uses npx (always up-to-date)
+
+**That's it! Restart Claude Code and you're done.**
+
+---
+
+### Method 2: Global npm Install
+
+The package is published as `@jaggerxtrm/qwen-mcp-tool`:
+
+**Step 1: Install globally**
+```bash
+npm install -g @jaggerxtrm/qwen-mcp-tool
+```
+
+**Step 2: Add to Claude Code MCP settings**
+
+Edit `~/.config/claude/mcp_settings.json`:
+```json
+{
+  "mcpServers": {
+    "qwen-cli": {
+      "command": "qwen-mcp-tool"
+    }
+  }
+}
+```
+
+**Step 3: Restart Claude Code**
+
+---
+
+### Method 3: Manual npx Configuration
+
+Run directly without installing:
+
+Edit `~/.config/claude/mcp_settings.json`:
+```json
+{
+  "mcpServers": {
+    "qwen-cli": {
+      "command": "npx",
+      "args": ["-y", "@jaggerxtrm/qwen-mcp-tool"]
+    }
+  }
+}
+```
+
+---
+
+### Method 4: Local Development Installation
+
+For contributors or local development:
 
 **Step 1: Link the package globally**
 ```bash
@@ -49,9 +111,9 @@ Edit `~/.config/claude/mcp_settings.json` (or your Claude config file):
 
 ---
 
-### Method 2: Direct Path (No npm link)
+### Method 5: Direct Path (Advanced)
 
-If you don't want to use npm link:
+If you want to use a specific local build:
 
 **Add to Claude Code MCP settings** with absolute path:
 ```json
@@ -59,50 +121,10 @@ If you don't want to use npm link:
   "mcpServers": {
     "qwen-cli": {
       "command": "node",
-      "args": ["/home/dawid/qwen-mcp-tool/dist/index.js"]
+      "args": ["/absolute/path/to/qwen-mcp-tool/dist/index.js"]
     }
   }
 }
-```
-
----
-
-### Method 3: Publish to npm (For Distribution)
-
-To make it available to other users:
-
-**Step 1: Update package.json**
-
-Make sure you have proper metadata:
-```json
-{
-  "name": "qwen-mcp-tool",
-  "author": "Your Name",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/yourusername/qwen-mcp-tool"
-  }
-}
-```
-
-**Step 2: Create npm account** (if needed)
-```bash
-npm login
-```
-
-**Step 3: Publish**
-```bash
-cd /home/dawid/qwen-mcp-tool
-npm publish
-```
-
-**Step 4: Users can then install via**:
-```bash
-# For Claude Code
-claude mcp add qwen-cli -- npx -y qwen-mcp-tool
-
-# Or globally
-npm install -g qwen-mcp-tool
 ```
 
 ---
@@ -206,12 +228,16 @@ npm install -g qwen-code
 
 ---
 
-## Current Recommended Method
+## Recommended Method
 
-**For the developer (you):**
+**Easiest (one command):**
 ```bash
-cd /home/dawid/qwen-mcp-tool
-npm link
+claude mcp add qwen-cli -- npx -y @jaggerxtrm/qwen-mcp-tool
+```
+
+**Or traditional install:**
+```bash
+npm install -g @jaggerxtrm/qwen-mcp-tool
 ```
 
 Then add to Claude Code config:
@@ -223,11 +249,6 @@ Then add to Claude Code config:
     }
   }
 }
-```
-
-**For other users (after publishing to npm):**
-```bash
-claude mcp add qwen-cli -- npx -y qwen-mcp-tool
 ```
 
 ---
@@ -242,7 +263,7 @@ npm unlink -g
 
 **If installed globally:**
 ```bash
-npm uninstall -g qwen-mcp-tool
+npm uninstall -g @jaggerxtrm/qwen-mcp-tool
 ```
 
 **Remove from Claude Code:**

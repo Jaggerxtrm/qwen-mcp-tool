@@ -1,11 +1,11 @@
 {
-  "name": "qwen-mcp-tool",
+  "name": "@jaggerxtrm/qwen-mcp-tool",
   "version": "1.0.0",
   "description": "Model Context Protocol server for Qwen CLI integration",
   "main": "dist/index.js",
   "type": "module",
   "bin": {
-    "qwen-mcp-tool": "./dist/index.js"
+    "qwen-mcp-tool": "dist/index.js"
   },
   "scripts": {
     "build": "tsc",

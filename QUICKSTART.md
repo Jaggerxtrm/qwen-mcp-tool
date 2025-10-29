@@ -1,16 +1,31 @@
 # Quick Start Guide
 
-## TL;DR - Get Running in 3 Steps
+## TL;DR - Get Running in 2 Steps
 
 ### Step 1: Install Qwen CLI (if not already installed)
 ```bash
 npm install -g @qwen/cli
 ```
 
-### Step 2: Link this tool
+### Step 2: Add to Claude Code (One Command!)
 ```bash
-cd /home/dawid/qwen-mcp-tool
-npm link
+claude mcp add qwen-cli -- npx -y @jaggerxtrm/qwen-mcp-tool
+```
+
+Restart Claude Code, and you're done! 🎉
+
+---
+
+## Alternative: Manual Installation (3 Steps)
+
+### Step 1: Install Qwen CLI (if not already installed)
+```bash
+npm install -g @qwen/cli
+```
+
+### Step 2: Install qwen-mcp-tool
+```bash
+npm install -g @jaggerxtrm/qwen-mcp-tool
 ```
 
 ### Step 3: Configure Claude Code
@@ -74,7 +89,7 @@ Use ask-qwen with prompt "@src/ What's the architecture of this codebase?"
 Install Qwen CLI: `npm install -g @qwen/cli`
 
 ### "qwen-mcp-tool: command not found"
-Run `npm link` again in the project directory
+Install the package: `npm install -g @jaggerxtrm/qwen-mcp-tool`
 
 ### Claude doesn't recognize the tools
 1. Check your MCP settings file path
@@ -91,11 +106,9 @@ Run `npm link` again in the project directory
 
 ---
 
-## Publishing to npm (Optional)
+## Package Information
 
-Want to share this with others?
+This package is published on npm as `@jaggerxtrm/qwen-mcp-tool`
 
-1. Create a GitHub repo
-2. Update package.json with your details
-3. Run `npm publish`
-4. Users can then install via: `npm install -g qwen-mcp-tool`
+- npm: https://www.npmjs.com/package/@jaggerxtrm/qwen-mcp-tool
+- Install: `npm install -g @jaggerxtrm/qwen-mcp-tool`
