@@ -2,6 +2,10 @@
 
 Model Context Protocol server for Qwen CLI integration. This tool enables AI assistants like Claude to leverage Qwen's powerful code analysis and large context window capabilities through the MCP protocol.
 
+<a href="https://glama.ai/mcp/servers/@Jaggerxtrm/qwen-mcp-tool">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@Jaggerxtrm/qwen-mcp-tool/badge" alt="Qwen Tool MCP server" />
+</a>
+
 ## Features
 
 - **Large Context Windows**: Leverage Qwen's massive token capacity for analyzing large files and entire codebases
